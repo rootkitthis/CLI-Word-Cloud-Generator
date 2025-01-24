@@ -10,7 +10,7 @@ file_path = 'words.txt'
 excluded_file_path = 'excluded.txt'
 
 #function that reads a text file and returns a list of words and stores it in the variable words
-def ReadWords(file_path):
+def ReadSourceWords(file_path):
     with open(file_path, 'r') as file:
         text = file.read().lower()
 
@@ -35,7 +35,7 @@ def FilterWords(word_list, exclude_words):
 
 #Main Logic
 if __name__ == "__main__":
-    WordList = ReadWords(file_path)
+    WordList = ReadSourceWords(file_path)
     ExcludeList = ReadExcludedWords(excluded_file_path)
     FilteredWords = FilterWords(WordList, ExcludeList)
 
