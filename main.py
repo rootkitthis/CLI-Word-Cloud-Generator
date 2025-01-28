@@ -34,12 +34,12 @@ def FilterWords(word_list, exclude_words):
 
 
 #Main Logic
-if __name__ == "__main__":
+def main():
     WordList = ReadSourceWords(file_path)
     ExcludeList = ReadExcludedWords(excluded_file_path)
     FilteredWords = FilterWords(WordList, ExcludeList)
 
-# Creates word cloud using using frequency of word counted
+    # Creates word cloud using using frequency of word counted
     WordCounts = Counter(FilteredWords)
     wordcloud = WordCloud(
         width=1000,
@@ -49,8 +49,11 @@ if __name__ == "__main__":
         #colormap= 'winter',
     ).generate_from_frequencies(WordCounts)
 
-# generates the word cloud
+    # generates the word cloud
     plt.figure(figsize=(10, 5))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
     plt.show()
+
+if __name__ == "__main__":
+    main()
